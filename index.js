@@ -14,7 +14,18 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-    
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                message: questions[0],
+                name: 'title',
+            },
+        ])
+        .then((response) => {
+            const md = genMarkdown.generateMarkdown(response);
+            writeToFile("README.md", md);
+        });
 }
 // Function call to initialize app
 init();
