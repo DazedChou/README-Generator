@@ -50,25 +50,32 @@ function generateMarkdown(response) {
 
   var tableofcontents = `
   ## Table of Contents
+  
   `;
   tableofcontents += `[Description](#description)
+  
   `
   if (response.installation != '') {
   tableofcontents += `[Installation](#installation)
+  
   `
   };
   if (response.usage != '') {
   tableofcontents += `[Usage](#usage)
+  
   `
   };
   tableofcontents += `[License](#licenses)
+  
   `
   if (response.contribution != '') {
   tableofcontents += `[Contribution](#contribution)
+  
   `
   }
   if (response.test !== '') {
     tableofcontents += `[Test](#test)
+  
   `
   };
   tableofcontents += `[Questions](#questions)
@@ -79,27 +86,27 @@ function generateMarkdown(response) {
   
   # ${response.title}
               
-  ## description:
+  ## Description:
   ${response.description}
   `;
 
   readme += tableofcontents;
 
   if (response.installation != null) {
-    readme += `## installation:
+    readme += `## Installation:
   ${response.installation}
   
   `
   };
   if (response.usage !== null) {
-    readme += `## usage:
+    readme += `## Usage:
   ${response.usage}
   
   `
   };
 
   //licenses
-  readme += `## licenses:
+  readme += `## License:
   This project is licensed under the ${response.licenses}
   `;
   readme += `${renderLicenseLink(response.licenses)}
@@ -107,14 +114,14 @@ function generateMarkdown(response) {
   `;
 
   if (response.contribution !== null) {
-    readme += `## contribution:
+    readme += `## Contribution:
   ${response.contribution}
   
   `
   }
 
   if (response.test !== null) {
-    readme += `## test:
+    readme += `## Test:
   ${response.test}
   
   `
