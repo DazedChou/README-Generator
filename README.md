@@ -1,34 +1,37 @@
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   
-  # hello
+  # README Generator
               
-  ## description:
-  tsar
+  ## Description:
+  Create a programe where the user answers the given promps and a README.md will be automatically generated
   
   ## Table of Contents
+  
   [Description](#description)
+  
   [Installation](#installation)
-  [Usage](#usage)
+  
   [License](#licenses)
-  [Contribution](#contribution)
+  
   [Questions](#questions)
   
-  ## installation:
-  dar
+  ## Installation:
+  Clone the repository and run node index.js in your terminal
   
-  ## usage:
-  hdar
+  ## Usage:
   
-  ## licenses:
-  This project is licensed under the Apache License 2.0https://opensource.org/licenses/Apache-2.0
   
-  ## contribution:
-  tsar
+  ## License:
+  This project is licensed under the MIT License
+  https://opensource.org/licenses/MIT
   
-  ## test:
+  ## Contribution:
+  
+  
+  ## Test:
   
   
   ## Questions:
-            
-  
+  john@doe.com          
+  https://github.com
   

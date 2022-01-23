@@ -92,13 +92,13 @@ function generateMarkdown(response) {
 
   readme += tableofcontents;
 
-  if (response.installation != null) {
+  if (response.installation != '') {
     readme += `## Installation:
   ${response.installation}
   
   `
   };
-  if (response.usage !== null) {
+  if (response.usage != '') {
     readme += `## Usage:
   ${response.usage}
   
@@ -113,14 +113,14 @@ function generateMarkdown(response) {
   
   `;
 
-  if (response.contribution !== null) {
+  if (response.contribution != '') {
     readme += `## Contribution:
   ${response.contribution}
   
   `
   }
 
-  if (response.test !== null) {
+  if (response.test != '') {
     readme += `## Test:
   ${response.test}
   
