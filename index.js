@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const genMarkdown = require('./generateMarkdown.js')
+const generateMarkdown = require('./generateMarkdown.js')
 // TODO: Create an array of questions for user input
 const questions = ['What is the title of your project?',
 'Give a description of your project.',
@@ -51,21 +51,31 @@ function init() {
                 'Eclipse Public License 2.0'],
             },
             {
-                type: 'list',
+                type: 'input',
                 message: questions[5],
                 name: 'contribution',
-                choices: ['yes','no'],
             },
             {
                 type: 'input',
                 message: questions[6],
                 name: 'test',
             },
+            {
+                type: 'input',
+                message: questions[7],
+                name: 'email',
+            },
+            {
+                type: 'input',
+                message: questions[8],
+                name: 'github',
+            },
 
         ])
         .then((response) => {
-            const md = genMarkdown.generateMarkdown(response);
-            writeToFile("README.md", md);
+            console.log ("response: ",response);
+            const markdown = generateMarkdown(response);
+            writeToFile("README.md", markdown);
         });
 }
 // Function call to initialize app
