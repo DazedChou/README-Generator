@@ -50,32 +50,39 @@ function generateMarkdown(response) {
 
   var tableofcontents = `## Table of Contents`;
   if (response.installation !== null) {
-    tableofcontents += `## installation:`
+    tableofcontents += `## installation:
+    `
   };
   if (response.usage !== null) {
-    tableofcontents += `## usage:`
+    tableofcontents += `## usage:
+    `
   };
   if (response.contribution !== null) {
-    tableofcontents += `## contribution:`
+    tableofcontents += `## contribution:
+    `
   }
   if (response.test !== null) {
-    tableofcontents += `## test:`
+    tableofcontents += `## test:
+    `
   };
 
   var readme = `# ${response.title}
               
   ## description:
-  ${response.description}`;
+  ${response.description}
+  `;
 
   readme += tableofcontents;
 
   if (response.installation !== null) {
     readme += `## installation
-    ${response.installation}`
+    ${response.installation}
+    `
   };
   if (response.usage !== null) {
     readme += `## usage:
-    ${response.usage}`
+    ${response.usage}
+    `
   };
 
   //licenses
@@ -94,7 +101,7 @@ function generateMarkdown(response) {
 
   readme += `## Questions:
   ${response.email}          
-  ${response.profile}`
+  ${response.github}`
   return readme;
 }
 
