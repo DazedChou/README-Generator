@@ -3,7 +3,7 @@
   # README Generator
               
   ## Description:
-  Create a programe where the user answers the given promps and a README.md will be automatically generated
+  Create a programe where the user answers the given promps and a README.md will be automatically generate
   
   ## Table of Contents
   
@@ -18,18 +18,8 @@
   ## Installation:
   Clone the repository and run node index.js in your terminal
   
-  ## Usage:
-  
-  
   ## License:
-  This project is licensed under the MIT License
-  https://opensource.org/licenses/MIT
-  
-  ## Contribution:
-  
-  
-  ## Test:
-  
+  This project is licensed under the [MIT License](https://opensource.org/licenses/MIT)
   
   ## Questions:
   john@doe.com          
