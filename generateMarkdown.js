@@ -1,7 +1,7 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  switch (license){
+  switch (license) {
     case "Apache License 2.0":
       return "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
     case "GNU General Public License v3.0":
@@ -16,14 +16,14 @@ function renderLicenseBadge(license) {
       return "[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)"
     default:
       return "";
-    }
-    
+  }
+
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  switch (license){
+  switch (license) {
     case "Apache License 2.0":
       return "https://opensource.org/licenses/Apache-2.0";
     case "GNU General Public License v3.0":
@@ -38,66 +38,65 @@ function renderLicenseLink(license) {
       return "https://opensource.org/licenses/EPL-1.0"
     default:
       return "";
-    }
+  }
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) { }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(response) {
 
   var tableofcontents = `## Table of Contents`;
-  if (response.installation !== null){
-    tableofcontents += `## installation:` 
+  if (response.installation !== null) {
+    tableofcontents += `## installation:`
   };
-  if (response.usage !== null){
-    tableofcontents += `## usage:` 
+  if (response.usage !== null) {
+    tableofcontents += `## usage:`
   };
-  if (response.contribution == 'yes'){
-    tableofcontents += `## contribution:` 
-  if (response.test !== null){
-    tableofcontents += `## test:` 
+  if (response.contribution !== null) {
+    tableofcontents += `## contribution:`
+  }
+  if (response.test !== null) {
+    tableofcontents += `## test:`
   };
 
-
-  return `# ${response.title}
+  var readme = `# ${response.title}
               
   ## description:
-  ${response.description}
+  ${response.description}`;
 
-  ## Table of Content
-  -[description](#description)
-  -[installation](#installation)
-  -[usage](#usage)
-  -[licenses](#licenses)
-  -[contribution](#contribution)
-  -[test](#test)
-  -[Questions](#Questions)
+  readme += tableofcontents;
 
-  ## username:
-  ${response.username}
-  
-  ## installation:
-  ${response.installation}            
-  
-  ## usage:
-  ${response.usage} 
-  
-  ## licenses:
-  ${response.licenses}            
-  
+  if (response.installation !== null) {
+    readme += `## installation
+    ${response.installation}`
+  };
+  if (response.usage !== null) {
+    readme += `## usage:
+    ${response.usage}`
+  };
 
-  ## contribution:
-  ${response.contribution}            
-  
-  ## test:
-  ${response.test}          
-  
-  ## Questions:
+  //licenses
+  readme += `## licenses`;
+  readme += renderLicenseBadge(response.license);
+
+  if (response.contribution !== null) {
+    readme += `## contribution:
+    ${response.contribution}`
+  }
+
+  if (response.test !== null) {
+    readme += `## test:
+    ${response.test}`
+  };
+
+  readme += `## Questions:
   ${response.email}          
-  ${response.profile}`;;
+  ${response.profile}`
+  return readme;
 }
+
 
 module.exports = generateMarkdown;
