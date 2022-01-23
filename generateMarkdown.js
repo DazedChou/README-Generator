@@ -48,25 +48,36 @@ function renderLicenseSection(license) { }
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(response) {
 
-  var tableofcontents = `## Table of Contents`;
-  if (response.installation !== null) {
-    tableofcontents += `## installation:
-    `
+  var tableofcontents = `
+  ## Table of Contents
+  `;
+  tableofcontents += `[Description](#description)
+  `
+  if (response.installation != '') {
+  tableofcontents += `[Installation](#installation)
+  `
   };
-  if (response.usage !== null) {
-    tableofcontents += `## usage:
-    `
+  if (response.usage != '') {
+  tableofcontents += `[Usage](#usage)
+  `
   };
-  if (response.contribution !== null) {
-    tableofcontents += `## contribution:
-    `
+  tableofcontents += `[License](#licenses)
+  `
+  if (response.contribution != '') {
+  tableofcontents += `[Contribution](#contribution)
+  `
   }
-  if (response.test !== null) {
-    tableofcontents += `## test:
-    `
+  if (response.test !== '') {
+    tableofcontents += `[Test](#test)
+  `
   };
+  tableofcontents += `[Questions](#questions)
+  
+  `
 
-  var readme = `# ${response.title}
+  var readme = `${renderLicenseBadge(response.licenses)}
+  
+  # ${response.title}
               
   ## description:
   ${response.description}
@@ -74,34 +85,45 @@ function generateMarkdown(response) {
 
   readme += tableofcontents;
 
-  if (response.installation !== null) {
-    readme += `## installation
-    ${response.installation}
-    `
+  if (response.installation != null) {
+    readme += `## installation:
+  ${response.installation}
+  
+  `
   };
   if (response.usage !== null) {
     readme += `## usage:
-    ${response.usage}
-    `
+  ${response.usage}
+  
+  `
   };
 
   //licenses
-  readme += `## licenses`;
-  readme += renderLicenseBadge(response.license);
+  readme += `## licenses:
+  This project is licensed under the ${response.licenses}
+  `;
+  readme += `${renderLicenseLink(response.licenses)}
+  
+  `;
 
   if (response.contribution !== null) {
     readme += `## contribution:
-    ${response.contribution}`
+  ${response.contribution}
+  
+  `
   }
 
   if (response.test !== null) {
     readme += `## test:
-    ${response.test}`
+  ${response.test}
+  
+  `
   };
 
   readme += `## Questions:
   ${response.email}          
-  ${response.github}`
+  ${response.github}
+  `
   return readme;
 }
 
