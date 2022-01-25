@@ -45,7 +45,7 @@ function init() {
             {
                 type: 'list',
                 message: questions[4],
-                name: 'licenses',
+                name: 'license',
                 choices: ['Apache License 2.0','GNU General Public License v3.0','MIT License',
                 'Boost Software License 1.0','Creative Commons Zero v1.0 Universal',
                 'Eclipse Public License 2.0'],

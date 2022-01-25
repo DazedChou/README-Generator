@@ -41,9 +41,6 @@ function renderLicenseLink(license) {
   }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) { }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(response) {
@@ -65,7 +62,7 @@ function generateMarkdown(response) {
   
   `
   };
-  tableofcontents += `[License](#licenses)
+  tableofcontents += `[License](#license)
   
   `
   if (response.contribution != '') {
@@ -82,7 +79,7 @@ function generateMarkdown(response) {
   
   `
 
-  var readme = `${renderLicenseBadge(response.licenses)}
+  var readme = `${renderLicenseBadge(response.license)}
   
   # ${response.title}
               
@@ -105,18 +102,19 @@ function generateMarkdown(response) {
   `
   };
 
-  //licenses
+  //license
   readme += `## License:
-  This project is licensed under the ${renderLicenseLink(response.licenses)}
+  This project is licensed under the ${renderLicenseLink(response.license)}
   
   `;
-  // readme += `${renderLicenseLink(response.licenses)}
+  // readme += `${renderLicenseLink(response.license)}
   
   // `;
 
   if (response.contribution != '') {
     readme += `## Contribution:
   ${response.contribution}
+  [Contributor Covenant](https://www.contributor-covenant.org/)
   
   `
   }
