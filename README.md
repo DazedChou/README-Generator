@@ -1,4 +1,4 @@
-# Team-Profile-Generator
+# README-Generator
 
 It is important to have a high-quality README for a given project. And this project allows a user to dynamically generate a professional README from the user's inputs. The user does not have to answer every prompt if the user chooses not to, and the table of contents will be generated based on whether not the user has answered the specific prompt or not. 
 
